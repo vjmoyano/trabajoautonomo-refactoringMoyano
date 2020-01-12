@@ -1,0 +1,53 @@
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class PrimitiveObsession {
+    public static void main(String args[])
+    {
+        HashMap<String,String> map= new HashMap<String, String>();
+
+        map.put("Vecsus", "platinum4");
+        map.put("CR7", "ElBicho");
+        map.put("Logan", "agujadinamica");
+
+        for (String item: map.keySet())
+        {
+
+            System.out.println(map.get(item));
+
+        }
+    }
+}
+
+//Para arreglar el primitive obsession se procede a crear una clase Usuario el cual tendra los atributos que aqui son usados
+//como clave/valor dentro del hashmap.
+
+public class Usuario{
+    String nombre_usuario;
+    String nick_usuario;
+
+    public Usuario(String nombre, String nick){
+        this.nombre_usuario=nombre;
+        this.nick_usuario=nick;
+    }
+
+}
+//Asi se veria el codigo con refactored
+
+public class PrimitiveObsession {
+    public static void main(String args[])
+    {
+        ArrayList<Usuario> users= new ArrayList<Usuario>();
+        users.add(new Usuario("Vecsus","platinum4"));
+        users.add(new Usuario("CR7","ElBicho"));
+        users.add(new Usuario("Logan","Agujadinamica"));
+
+
+        for (Usuario item: users)
+        {
+
+            System.out.println(item.nick_usuario);
+
+        }
+    }
+}
